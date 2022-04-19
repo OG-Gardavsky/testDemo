@@ -57,6 +57,17 @@ const firstTest = (characterId, successCode, requiredKeys) =>   {
             })
 
         })
+
+
+        describe('check if fits to expected data', () => {
+
+        })
+
+        describe('performance tests', () => {
+            //iterace - fastest, midd, slowes
+
+        })
+
     })
 
 }
