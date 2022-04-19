@@ -12,9 +12,11 @@ const { baseUrl } = require('../data/general')
 
 const makeEndpoint = (route) => `${baseUrl}${route}`
 
+const getCharacter = async (characterId) => await axios.get(makeEndpoint(`/character/${characterId}`))
 
 
-const firstTest = (characterId, successCode, requiredKeys) =>   {
+
+const firstTest = (characterId, successCode, requiredKeys, iteretions) =>   {
 
     if (characterId > 10 || characterId < 1) {
         throw new Error('Choose number in range 1 - 10 to call function firstTest ')
@@ -28,7 +30,7 @@ const firstTest = (characterId, successCode, requiredKeys) =>   {
             let resKeys
 
             it('first call', async () => {
-                res = await axios.get(makeEndpoint(`/character/${characterId}`))
+                res = await getCharacter(characterId)
             })
 
             it('status code', () => {
@@ -64,7 +66,36 @@ const firstTest = (characterId, successCode, requiredKeys) =>   {
         })
 
         describe('performance tests', () => {
-            //iterace - fastest, midd, slowes
+
+            it('response times', async () => {
+
+                const responseTimes = []
+
+                for (let i = 0; i< iteretions; i++) {
+                    const start = new Date()
+                    const res = await getCharacter(characterId)
+                    const end = new Date()
+
+                    responseTimes.push(end - start)
+
+                    expect(res.status).to.equal(successCode)
+                }
+
+                const maxTime = Math.max(...responseTimes)
+                const minTime = Math.min(...responseTimes)
+
+                const sumTime = responseTimes.reduce((previousValue, currentValue) => {
+                    return (previousValue + currentValue)
+                })
+                const avgTime = sumTime / responseTimes.length
+
+                console.log(`      Max response time is: ${maxTime} ms.`)
+                console.log(`      Min response time is: ${minTime} ms.`)
+                console.log(`      Average response time is: ${avgTime} ms.`)
+
+            })
+
+
 
         })
 
