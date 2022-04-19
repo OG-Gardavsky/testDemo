@@ -41,7 +41,7 @@ describe('first test', () => {
                     extraKeys.push(key)
                 }
             })
-            assert(extraKeys.length === 0, `the following keys - ${extraKeys} should not be in response.`)
+            assert(extraKeys.length === 0, `the following keys - " ${extraKeys} " should not be in response.`)
 
             missingKeys = []
             requiredKeys.forEach( key => {
@@ -49,7 +49,10 @@ describe('first test', () => {
                     missingKeys.push(key)
                 }
             })
-            assert(extraKeys.length === 0, `the following keys - ${missingKeys} are missing in response.`)
+
+            console.log(missingKeys)
+
+            assert(missingKeys.length === 0, `the following keys - " ${missingKeys} " are missing in response.`)
 
 
 
