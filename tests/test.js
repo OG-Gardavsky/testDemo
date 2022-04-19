@@ -25,22 +25,27 @@ const requiredKeys =
 
 const firstTest = (characterId) =>   {
 
-    if (characterId > 10 && characterId < 1) {
-        throw new Error('Choose number in range 1 - 10')
+    if (characterId > 10 || characterId < 1) {
+        throw new Error('Choose number in range 1 - 10 to call function firstTest ')
     }
 
     describe('Positive tests', () => {
 
-        describe('Testing of status code + object keys', () => {
-            it('Neco random', async () => {
+        describe('Basic atributes', () => {
 
-                console.log(`\n    we are testing character with id: ${characterId} `)
+            let res
+            let resKeys
 
-                const res = await axios.get(makeEndpoint(`/character/${characterId}`))
+            it('first call', async () => {
+                res = await axios.get(makeEndpoint(`/character/${characterId}`))
+            })
 
+            it('status code', () => {
                 expect(res.status).to.equal(succesCode)
-                const resKeys = Object.keys(res.data)
+            })
 
+            it('check if no extra properties', () => {
+                resKeys = Object.keys(res.data)
                 const extraKeys =[]
                 resKeys.forEach( key => {
                     if(!requiredKeys.includes(key)) {
@@ -48,17 +53,18 @@ const firstTest = (characterId) =>   {
                     }
                 })
                 assert(extraKeys.length === 0, `the following keys - " ${extraKeys} " should not be in response.`)
+            })
 
-                missingKeys = []
+            it('check if no extra properties', () => {
+                const missingKeys = []
                 requiredKeys.forEach( key => {
                     if(!resKeys.includes(key)) {
                         missingKeys.push(key)
                     }
                 })
                 assert(missingKeys.length === 0, `the following keys - " ${missingKeys} " are missing in response.`)
-
-                console.log(`    whoose name is: ${res.data.name} `)
             })
+
         })
 
 
