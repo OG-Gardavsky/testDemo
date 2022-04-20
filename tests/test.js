@@ -1,7 +1,7 @@
-const { basicTest } = require("./basicTest")
-const { performanceTest } = require("./performanceTest")
-const { dataTest } = require("./dataTest")
-const { successCode, requiredKeys, characterId, itereations, characters} = require("../data/characters")
+const { basicTest } = require("./character/basicTest")
+const { performanceTest } = require("./character/performanceTest")
+const { dataTest } = require("./character/dataTest")
+const { successCode, requiredKeys, characterId, itereations, characters} = require("../data/character/characters")
 
 
 basicTest(characterId, successCode, requiredKeys)
