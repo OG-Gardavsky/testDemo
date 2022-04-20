@@ -1,4 +1,13 @@
-const {firstTest} = require("./firstTest");
-const {successCode, requiredKeys} = require("../data/characters");
+const { basicTest } = require("./basicTest")
+const { performanceTest } = require("./performanceTest")
+const { dataTest } = require("./dataTest")
+const { successCode, requiredKeys, characterId, itereations} = require("../data/characters")
 
-firstTest(1, successCode, requiredKeys, 15)
+
+
+basicTest(characterId, successCode, requiredKeys)
+
+dataTest(characterId, {})
+
+
+performanceTest(characterId, successCode, itereations )
