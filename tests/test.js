@@ -1,13 +1,9 @@
 const { basicTest } = require("./basicTest")
 const { performanceTest } = require("./performanceTest")
 const { dataTest } = require("./dataTest")
-const { successCode, requiredKeys, characterId, itereations} = require("../data/characters")
-
+const { successCode, requiredKeys, characterId, itereations, characters} = require("../data/characters")
 
 
 basicTest(characterId, successCode, requiredKeys)
-
-dataTest(characterId, {})
-
-
+dataTest(characterId, characters[characterId], () => {} )
 performanceTest(characterId, successCode, itereations )

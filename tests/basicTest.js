@@ -29,7 +29,7 @@ const basicTest = (characterId, successCode, requiredKeys) =>   {
             assert(extraKeys.length === 0, `the following keys - " ${extraKeys} " should not be in response.`)
         })
 
-        it('check if no extra properties', () => {
+        it('check if no missing properties', () => {
             const missingKeys = []
             requiredKeys.forEach( key => {
                 if(!resKeys.includes(key)) {
