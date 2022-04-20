@@ -1,7 +1,7 @@
 const chai = require('chai')
 const assert = require('assert')
 const expect = chai.expect
-const { getCharacter } = require('../utils/generalUtils')
+const { getCharacter } = require('../../utils/generalUtils')
 
 const basicTest = (characterId, successCode, requiredKeys) =>   {
 
