@@ -2,8 +2,14 @@ const characterId = 1
 const successCode = 200
 const itereations = 15
 
-const requiredKeys =
-    ['id', 'name', 'status', 'species', 'type', 'gender', 'origin', 'location', 'image', 'episode', 'url', 'created']
+//correct
+const requiredKeys = ['id', 'name', 'status', 'species', 'type', 'gender', 'origin', 'location', 'image', 'episode', 'url', 'created']
+
+//extra values
+// const requiredKeys = ['id', 'name', 'status', 'species', 'gender', 'origin', 'location', 'image', 'url', 'created']
+
+// missing values
+// const requiredKeys = ['id', 'name', 'added', 'status', 'species', 'type', 'gender', 'added_as_well', 'origin', 'location', 'image', 'episode', 'url', 'created']
 
 
 const characters = {
