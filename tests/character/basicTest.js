@@ -3,7 +3,7 @@ const assert = require('assert')
 const expect = chai.expect
 const { getCharacter } = require('../../utils/generalUtils')
 
-const basicTest = (characterId, successCode, requiredKeys) =>   {
+const basicTest = (characterId, expectedStatusCode, requiredKeys) =>   {
 
     describe('Positive tests - status code - structure', () => {
 
@@ -14,8 +14,8 @@ const basicTest = (characterId, successCode, requiredKeys) =>   {
             res = await getCharacter(characterId)
         })
 
-        it('status code', () => {
-            expect(res.status).to.equal(successCode)
+        it(`expect status code to be ${expectedStatusCode}`, () => {
+            expect(res.status).to.equal(expectedStatusCode)
         })
 
         it('check if no extra properties', () => {

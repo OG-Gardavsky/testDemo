@@ -28,7 +28,7 @@ const negativeTest = (
         })
 
 
-        it(`Non existing character - expect status code equls to ${expectedStatusNonExisting}`, async () => {
+        it(`Non existing characterId - expect status code equls to ${expectedStatusNonExisting}`, async () => {
 
             let response
             try {
@@ -43,7 +43,7 @@ const negativeTest = (
         })
 
 
-        it(`Non existing character - expect status code equls to ${ExpectedStatusInvalid}`, async () => {
+        it(`Non valid characterId - expect status code equls to ${ExpectedStatusInvalid}`, async () => {
 
             let response
             try {
@@ -56,11 +56,6 @@ const negativeTest = (
             expect(response.status).to.equal(expectedStatusNonExisting)
             expect(response.statusText).to.equal(expectedTextNonExisting)
         })
-
-
-
-
-
 
     })
 }
