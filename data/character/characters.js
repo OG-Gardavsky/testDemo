@@ -1,14 +1,14 @@
-const characterId = 1
+const characterId = 3
 const successCode = 200
 const itereations = 15
 
 //correct
 const requiredKeys = ['id', 'name', 'status', 'species', 'type', 'gender', 'origin', 'location', 'image', 'episode', 'url', 'created']
 
-//extra values
+//extra values in response
 // const requiredKeys = ['id', 'name', 'status', 'species', 'gender', 'origin', 'location', 'image', 'url', 'created']
 
-// missing values
+// missing values in response
 // const requiredKeys = ['id', 'name', 'added', 'status', 'species', 'type', 'gender', 'added_as_well', 'origin', 'location', 'image', 'episode', 'url', 'created']
 
 

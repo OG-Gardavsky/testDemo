@@ -1,23 +1,60 @@
 const chai = require('chai')
 const assert = require('assert')
 const expect = chai.expect
-const { makeGetRequest} = require('../../utils/generalUtils')
+const { makeGetRequest, getCharacter} = require('../../utils/generalUtils')
 
-const negativeTest = (characterId, expectedStatusCode, nonExistentUrl) =>   {
+const negativeTest = (
+        nonExistingUserId,
+        expectedStatusNonExisting,
+        expectedTextNonExisting,
+        invalidUserId,
+        ExpectedStatusInvalid
+    ) =>   {
 
     describe('Negative tests', () => {
 
-        it(`Non existing endpoint - expect status code equls to ${expectedStatusCode}`, async () => {
+        it(`Non existing endpoint - expect status code equls to ${expectedStatusNonExisting}`, async () => {
 
-            let resStatusCode
+            let response
             try {
                 const res = await makeGetRequest('/somethingNonExisting')
-                resStatusCode = res.status
+                response = res.response
             } catch (err) {
-               resStatusCode = err.response.status
+                response = err.response
             }
 
-            expect(resStatusCode).to.equal(expectedStatusCode)
+            expect(response.status).to.equal(expectedStatusNonExisting)
+            expect(response.statusText).to.equal(expectedTextNonExisting)
+        })
+
+
+        it(`Non existing character - expect status code equls to ${expectedStatusNonExisting}`, async () => {
+
+            let response
+            try {
+                const res = await getCharacter(nonExistingUserId)
+                response = res.response
+            } catch (err) {
+                response = err.response
+            }
+
+            expect(response.status).to.equal(expectedStatusNonExisting)
+            expect(response.statusText).to.equal(expectedTextNonExisting)
+        })
+
+
+        it(`Non existing character - expect status code equls to ${ExpectedStatusInvalid}`, async () => {
+
+            let response
+            try {
+                const res = await getCharacter(nonExistingUserId)
+                response = res.response
+            } catch (err) {
+                response = err.response
+            }
+
+            expect(response.status).to.equal(expectedStatusNonExisting)
+            expect(response.statusText).to.equal(expectedTextNonExisting)
         })
 
 
