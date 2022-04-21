@@ -1,7 +1,7 @@
 const chai = require('chai')
 const assert = require('assert')
 const expect = chai.expect
-const { makeGetRequest, getCharacter} = require('../../utils/generalUtils')
+const { makeGetRequest, getCharacter} = require('../../utils/requests')
 
 const negativeTest = (
         nonExistingUserId,

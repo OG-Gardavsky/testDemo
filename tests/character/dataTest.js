@@ -1,6 +1,6 @@
 const chai = require('chai')
 const expect = chai.expect
-const {getCharacter} = require("../../utils/generalUtils")
+const {getCharacter} = require("../../utils/requests")
 
 
 const dataTest = (characterId, dataToCompare, done) => {
